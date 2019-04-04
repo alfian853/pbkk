@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Matkul;
 use Illuminate\Http\Request;
 use App\Kelas;
 use App\Dosen;
@@ -11,6 +12,7 @@ class KelasController extends Controller
 {
     public function index()
     {
+//        $kelas = DB::table('kelases')->get();//->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
         $kelas = Kelas::all();//DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
 //            dd($kelas);
         return view ('kelas.index',compact('kelas'));
@@ -19,7 +21,7 @@ class KelasController extends Controller
     public function create()
     {
         $dsn = Dosen::pluck('namadosen','nip');
-        $matkul = Dosen::pluck('nama','kode');
+        $matkul = Matkul::pluck('nama','kode_matkul');
         return view ('kelas.create',compact('dsn','matkul'));
 
     }
