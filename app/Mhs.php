@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mhs extends Model
 {
-    //
+    public $incrementing = false;
     protected $primaryKey = "nrp";
     protected $table = 'mhses';
 

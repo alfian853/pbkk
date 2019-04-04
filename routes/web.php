@@ -19,6 +19,8 @@ Route::get('/', function () {
 Route::get('/form',function (){
    return view('form');
 });
+Route::get('/mhs/{id}/form', 'MhsController@form');
+
 
 Route::post('/form','Controller@showData');
 Route::resource('mhs','MhsController');

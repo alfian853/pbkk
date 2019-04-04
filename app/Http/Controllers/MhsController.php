@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mhs;
 use App\Dosen;
+use App\Kelas;
 use Illuminate\Support\Facades\DB;
 
 class mhsController extends Controller
@@ -37,6 +38,14 @@ class mhsController extends Controller
         $mhsnya    = Mhs::findorfail($id);
         $dosennya  = Dosen::pluck('namadosen','nip');
         return view('mhs.edit',compact('mhsnya','dosennya'));
+    }
+
+    public function form($id)
+    {
+        $mhsnya    = Mhs::findorfail($id);
+        $kelasnya  = Kelas::pluck('kode_kelas','nama');
+        //dd($kelasnya);
+        return view('mhs.form',compact('mhsnya','kelasnya'));
     }
 
     public function update(Request $request, $id)

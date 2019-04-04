@@ -23,6 +23,8 @@
                                 <td>{{ $m->dosen_wali->namadosen }}</td><td align="center" width="30px">
                                     <a href="/mhs/{{$m->nrp}}/edit" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Edit</a>
                                 </td><td align="center" width="30px">
+                                  <a href="/mhs/{{$m->nrp}}/form" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Ambil Kelas</a>
+                              </td><td align="center" width="30px">
                                     {!! Form::open(array('route' => array('mhs.destroy', $m->nrp),
                                              'method' => 'delete','style' => 'display:inline')) !!}
                                     <button class='btn btn-sm btn-danger delete-btn' type='submit'>
