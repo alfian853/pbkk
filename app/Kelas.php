@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Kelas extends Model
 {
     protected $primaryKey = "kode";
-    protected $table = 'kelas';
+    protected $table = 'kelases';
 
-    protected $fillable = ['kode','nip_dosen','kode_matkul'];
+    protected $fillable = ['kode','nama', 'nip_dosen','kode_matkul'];
+
     public function dosen(){
         return $this->hasOne('App\Dosen','nip','nip_dosen');
     }

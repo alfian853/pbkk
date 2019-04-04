@@ -8,7 +8,7 @@ class Mhs extends Model
 {
     //
     protected $primaryKey = "nrp";
-    protected $table = 'mhs';
+    protected $table = 'mhses';
 
     protected $fillable = ['namamhs','nrp','nipdosenwali'];
 

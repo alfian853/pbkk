@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mhs;
 use App\Dosen;
 use Illuminate\Support\Facades\DB;
+
 class mhsController extends Controller
 {
     public function index()

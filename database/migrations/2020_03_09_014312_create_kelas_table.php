@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatkulTable extends Migration
+class CreateKelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateMatkulTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('matkuls');
-        Schema::create('matkuls', function (Blueprint $table) {
-            $table->string('kode',16)->primary();
-            $table->string('nama',64);
-            $table->string('deskripsi',128);
+        Schema::dropIfExists('kelases');
+        Schema::create('kelases', function (Blueprint $table) {
+            $table->string('kode',64)->primary();
+            $table->string('nama',16);
             $table->string('nip_dosen',16);
+            $table->string('kode_matkul',16);
             $table->foreign('nip_dosen')->references('nip')->on('dosens');
+            $table->foreign('kode_matkul')->references('kode')->on('matkuls');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateMatkulTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('kelas');
     }
 }

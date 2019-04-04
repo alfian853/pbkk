@@ -24,3 +24,4 @@ Route::post('/form','Controller@showData');
 Route::resource('mhs','MhsController');
 Route::resource('dosen','DosenController');
 Route::resource('matkul','MatkulController');
+Route::resource('kelas','KelasController');

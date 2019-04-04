@@ -13,10 +13,10 @@ class CreateMhsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('mhs');
-        Schema::create('mhs', function (Blueprint $table) {
+        Schema::dropIfExists('mhses');
+        Schema::create('mhses', function (Blueprint $table) {
+            $table->string('nrp',16)->primary();
             $table->string('namamhs',64);
-            $table->string('nrp',16);
             $table->string('nipdosenwali',16);
             $table->foreign('nipdosenwali')->references('nip')->on('dosens');
             $table->timestamps();
