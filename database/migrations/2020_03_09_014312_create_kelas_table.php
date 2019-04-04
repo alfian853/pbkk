@@ -15,7 +15,7 @@ class CreateKelasTable extends Migration
     {
         Schema::dropIfExists('kelases');
         Schema::create('kelases', function (Blueprint $table) {
-            $table->string('kode',64)->primary();
+            $table->string('kode_kelas',64)->primary();
             $table->string('nama',16);
             $table->string('nip_dosen',16);
             $table->string('kode_matkul',16);

@@ -11,14 +11,14 @@
                         @endif
                         <a href="{{route('matkul.create')}}" class="btn btn-info pull-right">Tambah Data</a><br><br>
                             <table class="table table-striped">
-                                <tr><th>NO</th><th>kode</th><th>Nama</th><th>deskripsi</th><th>Action</th></tr>
+                                <tr><th>NO</th><th>kode_matkul</th><th>Nama</th><th>deskripsi</th><th>Action</th></tr>
                                 <?php $no=1; ?>
                                 @foreach($matkul as $m)
-                                    <tr><td>{{$no++}}</td><td>{{$m->kode}}</td><td>{{$m->nama}}</td><td>{{$m->deskripsi}}</td><td>
-                                        <form method="POST" action="{{ route('matkul.destroy', $m->kode) }}" accept-charset="UTF-8">
+                                    <tr><td>{{$no++}}</td><td>{{$m->kode_matkul}}</td><td>{{$m->nama}}</td><td>{{$m->deskripsi}}</td><td>
+                                        <form method="POST" action="{{ route('matkul.destroy', $m->kode_matkul) }}" accept-charset="UTF-8">
                                             <input name="_method" type="hidden" value="DELETE">
                                             <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                            <a href="{{route('matkul.edit', $m->kode)}}" class="btn btn-primary">Edit</a>
+                                            <a href="{{route('matkul.edit', $m->kode_matkul)}}" class="btn btn-primary">Edit</a>
                                             <input type="submit" class="btn btn-danger"
                                                    onclick="return confirm('Anda yakin akan menghapus data ?');" value="Delete">
                                         </form></td></tr>

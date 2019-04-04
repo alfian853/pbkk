@@ -6,9 +6,9 @@
                         <form action="{{route('matkul.update', $m->id)}}" method="post">
                             <input name="_method" type="hidden" value="PATCH">
                             {{csrf_field()}}
-                            <div class="form-group{{ $errors->has('kode') ? ' has-error' : '' }}">
-                                <input type="text" name="kode" class="form-control" placeholder="kode" value="{{$m->kode}}">
-                                {!! $errors->first('kode', '<p class="help-block">:message</p>') !!}
+                            <div class="form-group{{ $errors->has('kode_matkul') ? ' has-error' : '' }}">
+                                <input type="text" name="kode_matkul" class="form-control" placeholder="kode_matkul" value="{{$m->kode_matkul}}">
+                                {!! $errors->first('kode_matkul', '<p class="help-block">:message</p>') !!}
                             </div>
 
                             <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">

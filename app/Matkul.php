@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matkul extends Model
 {
-    protected $primaryKey = "kode";
+    protected $primaryKey = "kode_kelas";
     protected $table = 'matkuls';
 
     protected $fillable = ['nama','kode','deskripsi','nip_dosen'];

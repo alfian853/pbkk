@@ -16,21 +16,28 @@
             @if(count($kelas))
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover table-condensed tfix">
-                        <thead align="center"><tr>
-                            <td><b>NRP</b></td><td><b>Nama Mahasiswa</b></td>
+                        <thead align="center">
+                        <tr>
+                            <td><b>Kode</b></td><td><b>Nama Mahasiswa</b></td>
                             <td><b>Nama Dosen Wali</b></td>
-                            <td colspan="2"><b>MENU</b></td></tr></thead>
-                            @foreach($k as $kelas)
+                            <td colspan="2"><b>MENU</b></td>
+                        </tr>
+                        </thead>
+                            @foreach($kelas as $k)
                             <tr>
-                                <td>{{ $k->nrp }}</td><td>{{ $k->namamhs }}</td>
-                                <td>{{ $k->dosen_wali->namadosen }}</td><td align="center" width="30px">
-                                    <a href="/kelas/{{$k->kode}}/edit" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Edit</a>
-                                </td><td align="center" width="30px">
-                                    {!! Form::open(array('route' => array('mhs.destroy', $k->nrp),
+                                <td>{{ $k->kode_kelas }}</td>
+                                <td>{{ $k->nama }}</td>
+                                <td>{{ $k->dosen->namadosen }}</td><td align="center" width="30px">
+                                    <a href="/kelas/{{$k->kode_kelas}}/edit" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Edit</a>
+                                </td>
+                                <td align="center" width="30px">
+                                    {!! Form::open(array('route' => array('mhs.destroy', $k->kode_kelas),
                                              'method' => 'delete','style' => 'display:inline')) !!}
                                     <button class='btn btn-sm btn-danger delete-btn' type='submit'>
                                         <i class='fa fa-times-circle'></i> Delete </button>
-                                    {!! Form::close() !!} </td> </tr>
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
                             @endforeach
                     </table>
                 </div>

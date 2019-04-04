@@ -6,9 +6,9 @@
                 <div class="panel-body">
                     <form action="{{route('matkul.store')}}" method="post">
                         {{csrf_field()}}
-                        <div class="form-group{{ $errors->has('kode') ? ' has-error' : '' }}">
-                            <input type="text" name="kode" class="form-control" placeholder="kode">
-                            {!! $errors->first('kode', '<p class="help-block">:message</p>') !!}
+                        <div class="form-group{{ $errors->has('kode_matkul') ? ' has-error' : '' }}">
+                            <input type="text" name="kode_matkul" class="form-control" placeholder="kode_matkul">
+                            {!! $errors->first('kode_matkul', '<p class="help-block">:message</p>') !!}
                         </div>
                         <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
                             <input type="text" name="nama" class="form-control" placeholder="Nama">

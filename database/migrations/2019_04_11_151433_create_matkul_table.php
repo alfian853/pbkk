@@ -15,7 +15,7 @@ class CreateMatkulTable extends Migration
     {
         Schema::dropIfExists('matkuls');
         Schema::create('matkuls', function (Blueprint $table) {
-            $table->string('kode',16)->primary();
+            $table->string('kode_matkul',16)->primary();
             $table->string('nama',64);
             $table->string('deskripsi',128);
             $table->string('nip_dosen',16);
