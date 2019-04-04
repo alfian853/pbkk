@@ -6,10 +6,16 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <h4><i class="fa fa-university"></i> DAFTAR DOSEN</h4><hr>
-            <div class=row><div class="col-md-6">
-                    <a href="/dosen/create" class="btn btn-primary">
-                        <i class="fa fa-plus-circle"></i> Tambah</a>
-                </div><div class="col-md-2"></div><div class="col-md-4">            </div></div><br>
+                <div class=row>
+                    <div class="col-md-6">
+                        <a href="/dosen/create" class="btn btn-primary">
+                            <i class="fa fa-plus-circle"></i> Tambah</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            <br>
             @if($dsn->count())
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped
@@ -34,6 +40,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        {{$dsn->links()}}
                     </table>
                 </div>
             @else

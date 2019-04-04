@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class mhsDummy extends Seeder
 {
@@ -11,12 +12,12 @@ class mhsDummy extends Seeder
      */
     public function run()
     {
-        //
-        for ($i = 1; $i <= 10; $i++) {
+        $faker = Faker::create();
+        for ($i = 1; $i <= 200; $i++) {
             DB::table('mhs')->insert([
                 'nrp' => 'mhs00'.$i,
-                'nama' => 'nama ke-'.$i,
-                'alamat' => 'ITS',]);
+                'namamhs' => $faker->name,
+                'nipdosenwali' => 'nip-'.mt_rand(1,100)]);
         }
     }
 }

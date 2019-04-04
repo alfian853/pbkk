@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use Illuminate\Support\Facades\DB;
 
 class DosenController extends Controller
 {
     function index(){
-        $dsn = dosen::all();
+        $dsn = Dosen::paginate(5);
+//        $dsn = DB::table('dosens')->paginate(5);
         return view('dosen.index',compact('dsn'));
     }
 

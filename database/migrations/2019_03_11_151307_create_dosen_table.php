@@ -16,7 +16,7 @@ class CreateDosenTable extends Migration
         Schema::dropIfExists('dosens');
         Schema::create('dosens', function (Blueprint $table) {
             $table->string('namadosen',64);
-            $table->string('nip',16);
+            $table->string('nip',16)->primary();
             $table->timestamps();
         });
     }

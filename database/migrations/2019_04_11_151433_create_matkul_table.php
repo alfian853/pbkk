@@ -15,10 +15,11 @@ class CreateMatkulTable extends Migration
     {
         Schema::dropIfExists('matkul');
         Schema::create('matkul', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nama',64);
             $table->string('kode',16);
+            $table->string('nama',64);
             $table->string('deskripsi',128);
+            $table->string('nip_dosen',16);
+            $table->foreign('nip_dosen')->references('nip')->on('dosens');
             $table->timestamps();
         });
     }
