@@ -15,7 +15,7 @@ class matkulDummy extends Seeder
         $faker = Faker::create();
         for ($i = 1; $i <= 200; $i++) {
             DB::table('matkuls')->insert([
-                'kode' => 'kode-matkul-'.$i,
+                'kode_matkul' => 'kode-matkul-'.$i,
                 'nama' => 'nama-matkul-'.$i,
                 'deskripsi' => '',
                 'nip_dosen' => 'nip-'.mt_rand(1,100)]);

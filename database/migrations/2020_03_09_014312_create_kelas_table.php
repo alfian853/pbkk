@@ -20,7 +20,7 @@ class CreateKelasTable extends Migration
             $table->string('nip_dosen',16);
             $table->string('kode_matkul',16);
             $table->foreign('nip_dosen')->references('nip')->on('dosens');
-            $table->foreign('kode_matkul')->references('kode')->on('matkuls');
+            $table->foreign('kode_matkul')->references('kode_matkul')->on('matkuls');
             $table->timestamps();
         });
     }
