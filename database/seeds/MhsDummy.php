@@ -14,7 +14,7 @@ class mhsDummy extends Seeder
     {
         $faker = Faker::create();
         for ($i = 1; $i <= 200; $i++) {
-            DB::table('mhs')->insert([
+            DB::table('mhses')->insert([
                 'nrp' => 'mhs00'.$i,
                 'namamhs' => $faker->name,
                 'nipdosenwali' => 'nip-'.mt_rand(1,100)]);
