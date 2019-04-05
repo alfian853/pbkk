@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <h4><i class="fa fa-check-square">
-        </i> Ambil Kelas dan Matakuliah </h4><hr>
+        </i> Isi Nilai </h4><hr>
         <div class="row">
             <div class="col-md-3">
                 <div class="list-group">
@@ -19,18 +19,15 @@
                         <i class="fa fa-home"></i> Home</a>
                 </div>
             </div>
-            {!!Form::model($mhsnya,['method'=>'post',
-              'action'=>['MhsController@frsform',$mhsnya->nrp]]) !!}
-            <div class="form-group">
-              {!! Form::label('nrp', 'NRP') !!}
-              {!! Form::text('nrp',null, array('class' => 'form-control','placeholder'=>'NRP')) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('kode_kelas', 'Nama Kelas') !!} -->
-                {!! Form::select('kode_kelas', $kelasnya ,null, array('class' => 'form-control','placeholder'=>'Nama kelas')) !!}
-            </div>
+            <form action="{{Request::url()}}" method="post">
+              {{csrf_field()}}
+              <div class="form-group">
+                {!! Form::label('nilai', 'Nilai') !!}
+                {!! Form::text('nilai',null, array('class' => 'form-control','placeholder'=>'Nilai')) !!}
+              </div>
+              {!! Form::button('<i class="fa fa-check-square"></i>'. ' Update', array('type' => 'submit', 'class' => 'btn btn-primary'))!!}
+
+            </form>
         </div>
-        {!! Form::button('<i class="fa fa-check-square"></i>'. ' Update', array('type' => 'submit', 'class' => 'btn btn-primary'))!!}
-        {!! Form::close()!!}
     </div></div></div></div></div></div>
 @endsection

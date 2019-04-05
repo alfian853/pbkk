@@ -6,6 +6,7 @@ use App\Matkul;
 use Illuminate\Http\Request;
 use App\Kelas;
 use App\Dosen;
+use App\MhsKelas;
 use Illuminate\Support\Facades\DB;
 
 class KelasController extends Controller
@@ -23,7 +24,28 @@ class KelasController extends Controller
         $dsn = Dosen::pluck('namadosen','nip');
         $matkul = Matkul::pluck('nama','kode_matkul');
         return view ('kelas.create',compact('dsn','matkul'));
+    }
 
+    public function isikelas($kode_kelas)
+    {
+        $data = DB::table('mhs_kelas')->where('kode_kelas', '=', $kode_kelas)->get( );
+        //dd($data);
+        return view ('kelas.isikls',compact('data'));
+    }
+
+    public function isinilai(Request $request,$kode_kelas, $nrp_mhs)
+    {
+        $data = DB::table('mhs_kelas')->where('kode_kelas', '=', $kode_kelas)
+                ->where('nrp_mhs', '=', $nrp_mhs)->get();
+
+        return view ('kelas.isinilai',compact('data'));
+    }
+
+    public function updatenilai(Request $request,$kode_kelas, $nrp_mhs)
+    {
+        $data = DB::table('mhs_kelas')->where('kode_kelas', '=', $kode_kelas)
+                ->where('nrp_mhs', '=', $nrp_mhs)->update(['nilai'=>$request['nilai']]);
+        return view ('kelas.isinilai',compact('data'));
     }
 
     public function store(Request $request)

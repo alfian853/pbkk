@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mhs;
 use App\Dosen;
 use App\Kelas;
+use App\MhsKelas;
 use Illuminate\Support\Facades\DB;
 
 class mhsController extends Controller
@@ -44,8 +45,17 @@ class mhsController extends Controller
     {
         $mhsnya    = Mhs::findorfail($id);
         $kelasnya  = Kelas::pluck('kode_kelas','nama');
-        //dd($kelasnya);
         return view('mhs.form',compact('mhsnya','kelasnya'));
+    }
+
+    public function frsform(Request $request, $id)
+    {
+      DB::table('mhs_kelas')->insert([
+          'nrp_mhs' => $id,
+          'kode_kelas' => $request->input('kode_kelas'),
+          'nilai' => '-'
+      ]);
+        return redirect()->route('mhs.index');
     }
 
     public function update(Request $request, $id)
@@ -53,7 +63,6 @@ class mhsController extends Controller
         $mhsnya = mhs::findorfail($id);
         $mhsnya->update($request->all());
         return redirect('/mhs');
-
     }
     public function destroy($id){
         $m = Mhs::findOrFail($id);

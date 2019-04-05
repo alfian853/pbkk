@@ -13,24 +13,22 @@
                 </div>
             </div>
             <br>
-            @if(count($kelas))
+            @if(count($data))
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover table-condensed tfix">
                         <thead align="center">
                         <tr>
-                            <td><b>Kode</b></td><td><b>Nama Mahasiswa</b></td>
-                            <td><b>Nama Dosen Wali</b></td>
+                            <td><b>Kode Kelas</b></td><td><b>Nilai Mahasiswa</b></td>
+                            <td><b>NRP Mahasiswa</b></td>
                             <td colspan="2"><b>MENU</b></td>
                         </tr>
                         </thead>
-                            @foreach($kelas as $k)
+                            @foreach($data as $k)
                             <tr>
                                 <td>{{ $k->kode_kelas }}</td>
-                                <td>{{ $k->nama }}</td>
-                                <td>{{ $k->dosen->namadosen }}</td><td align="center" width="30px">
-                                    <a href="/kelas/{{$k->kode_kelas}}/edit" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Edit</a>
-                                    <a href="/kelas/{{$k->kode_kelas}}/isikls" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Lihat Kelas</a>
-                                </td>
+                                <td>{{ $k->nilai }}</td>
+                                <td>{{ $k->nrp_mhs}}</td><td align="center" width="30px">
+                                    <a href="/kelas/{{$k->kode_kelas}}/isinilai/{{$k->nrp_mhs}}" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Edit</a>
                                 </td>
                                 <td align="center" width="30px">
                                     {!! Form::open(array('route' => array('mhs.destroy', $k->kode_kelas),

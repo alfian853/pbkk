@@ -20,6 +20,10 @@ Route::get('/form',function (){
    return view('form');
 });
 Route::get('/mhs/{id}/form', 'MhsController@form');
+Route::post('/mhs/{id}/form', 'MhsController@frsform');
+Route::get('/kelas/{kode_kelas}/isikls', 'KelasController@isikelas');
+Route::get('/kelas/{kode_kelas}/isinilai/{nrp_mhs}', 'KelasController@isinilai');
+Route::post('/kelas/{kode_kelas}/isinilai/{nrp_mhs}', 'KelasController@updatenilai');
 
 
 Route::post('/form','Controller@showData');
