@@ -22,10 +22,6 @@
                 {!!Form::model($kelasnya,['method'=>'PATCH',
                   'action'=>['KelasController@update',$kelasnya->kode_kelas]]) !!}
                 <div class="form-group">
-                    {!! Form::label('kode_kelas', 'kode_kelas') !!}
-                    {!! Form::text('kode_kelas',null, array('class' => 'form-control','placeholder'=>'kode_kelas')) !!}
-                </div>
-                <div class="form-group">
                     {!! Form::label('nama', 'Nama Kelas') !!}
                     {!! Form::text('nama', null, array('class' => 'form-control','placeholder'=>'Nama kelas')) !!}
                 </div><div class="form-group">

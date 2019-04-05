@@ -18,8 +18,8 @@
                     <table class="table table-bordered table-striped table-hover table-condensed tfix">
                         <thead align="center">
                         <tr>
-                            <td><b>Kode</b></td><td><b>Nama Mahasiswa</b></td>
-                            <td><b>Nama Dosen Wali</b></td>
+                            <td><b>Kode</b></td><td><b>Nama Kelas</b></td>
+                            <td><b>Nama Dosen Pengajar</b></td>
                             <td colspan="2"><b>MENU</b></td>
                         </tr>
                         </thead>
